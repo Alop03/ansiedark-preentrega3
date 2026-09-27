@@ -1,14 +1,38 @@
+import { useEffect, useState } from "react"
+import { getProducts } from "../mock/asyncMock"
+import ItemList from "./ItemList"
 import "./ItemListContainer.css"
 
-// Recibe el mensaje principal mediante props y reserva el espacio del catálogo.
+// Obtiene los productos, administra sus estados y delega su presentación.
 function ItemListContainer({ greeting }) {
+    const [items, setItems] = useState([])
+    const [cargando, setCargando] = useState(true)
+    const [error, setError] = useState("")
+
+    useEffect(() => {
+        async function cargarProductos() {
+            try {
+                const productosRecibidos = await getProducts()
+                setItems(productosRecibidos)
+            } catch {
+                setError(
+                    "No pudimos cargar las joyas. Intentá nuevamente.",
+                )
+            } finally {
+                setCargando(false)
+            }
+        }
+
+        cargarProductos()
+    }, [])
+
     return (
         <section
             id="catalogo"
             className="catalogo"
             aria-labelledby="titulo-catalogo"
         >
-            <div className="catalogo__contenido">
+            <header className="catalogo__encabezado">
                 <p className="catalogo__etiqueta">
                     Suscripción mensual de joyas
                 </p>
@@ -21,14 +45,32 @@ function ItemListContainer({ greeting }) {
                 </h1>
 
                 <p className="catalogo__descripcion">
-                    Una selección diferente cada mes para combinar,
+                    Una selección diferente para combinar,
                     mezclar y hacer propia.
                 </p>
+            </header>
 
-                <span className="catalogo__detalle">
-                    Catálogo en construcción
-                </span>
-            </div>
+            {cargando && (
+                <p
+                    className="catalogo__estado"
+                    role="status"
+                >
+                    Preparando la selección...
+                </p>
+            )}
+
+            {error && (
+                <p
+                    className="catalogo__estado catalogo__estado--error"
+                    role="alert"
+                >
+                    {error}
+                </p>
+            )}
+
+            {!cargando && !error && (
+                <ItemList items={items} />
+            )}
         </section>
     )
 }

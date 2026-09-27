@@ -1,0 +1,55 @@
+// Presenta la información resumida de un producto.
+function Item({ item }) {
+    const {
+        name,
+        price,
+        category,
+        img,
+        stock,
+        description,
+    } = item
+
+    const precioFormateado = new Intl.NumberFormat("es-UY", {
+        style: "currency",
+        currency: "UYU",
+        maximumFractionDigits: 0,
+    }).format(price)
+
+    return (
+        <article className="producto">
+            <div className="producto__imagen-contenedor">
+                <img
+                    className="producto__imagen"
+                    src={img}
+                    alt={name}
+                />
+
+                <span className="producto__categoria">
+                    {category}
+                </span>
+            </div>
+
+            <div className="producto__informacion">
+                <h2 className="producto__nombre">
+                    {name}
+                </h2>
+
+                <p className="producto__descripcion">
+                    {description}
+                </p>
+
+                <div className="producto__datos">
+                    <p className="producto__precio">
+                        {precioFormateado}
+                    </p>
+
+                    <p className="producto__stock">
+                        {stock} disponibles
+                    </p>
+                </div>
+            </div>
+        </article>
+    )
+}
+
+export default Item
