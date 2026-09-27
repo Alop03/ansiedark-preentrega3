@@ -62,7 +62,7 @@ const productos = [
     },
 ]
 
-// Devuelve los productos luego de una demora para simular una petición externa.
+// Simula una petición a una API con una demora de dos segundos.
 function getProducts() {
     return new Promise((resolve) => {
         setTimeout(() => {

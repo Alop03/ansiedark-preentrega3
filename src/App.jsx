@@ -3,14 +3,15 @@ import ItemListContainer from "./components/ItemListContainer"
 import "./App.css"
 
 // Compone la navegación y el contenido principal del e-commerce.
+
 function App() {
     return (
         <>
             <Navbar />
 
-            <main className="contenido-principal">
+            <main>
                 <ItemListContainer
-                    greeting="Tu selección mensual empieza acá."
+                    greeting="Joyas para quienes hacen de su identidad una estética"
                 />
             </main>
         </>

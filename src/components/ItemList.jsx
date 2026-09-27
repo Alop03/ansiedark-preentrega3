@@ -3,6 +3,8 @@ import "./ItemList.css"
 
 // Transforma la colección recibida en componentes visuales.
 function ItemList({ items }) {
+    
+        // Cada producto se delega al componente Item para separar responsabilidades.
     return (
         <div className="productos">
             {items.map((item) => (

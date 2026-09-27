@@ -9,6 +9,7 @@ function ItemListContainer({ greeting }) {
     const [cargando, setCargando] = useState(true)
     const [error, setError] = useState("")
 
+    // La petición se ejecuta una sola vez cuando se monta el componente.
     useEffect(() => {
         async function cargarProductos() {
             try {

@@ -1,49 +1,57 @@
-# Ansiedark — Pre-entrega 2
+# Ansiedark — Pre-entrega 3
 
-Segunda etapa del e-commerce de Ansiedark, una joyería por suscripción dirigida a personas que hacen de su identidad una estética.
+Tercera pre-entrega del curso de React JS de Coderhouse.
 
-En esta instancia se desarrolló el layout inicial de la tienda mediante componentes funcionales de React, incorporando una navegación por categorías, un indicador visual del carrito y un contenedor principal que recibe contenido mediante props.
+Ansiedark es una propuesta de suscripción mensual de joyas orientada a personas que buscan incorporar accesorios a su identidad y estilo personal.
+
+## Funcionalidades incorporadas
+
+- Catálogo de joyas generado dinámicamente.
+- Simulación de una petición asincrónica mediante una promesa.
+- Demora de dos segundos con `setTimeout`.
+- Manejo del estado con `useState`.
+- Ejecución de la petición con `useEffect`.
+- Renderizado de productos mediante `map`.
+- Componentes separados para el catálogo y cada producto.
+- Indicador visual durante la carga.
+- Mensaje visual ante un posible error.
+- Diseño adaptable a dispositivos móviles.
+
+## Componentes principales
+
+- `Navbar`: representa la navegación principal.
+- `CartWidget`: muestra visualmente el acceso al carrito.
+- `ItemListContainer`: obtiene los productos y administra los estados de carga y error.
+- `ItemList`: recorre la colección y genera el listado de productos.
+- `Item`: representa individualmente cada joya del catálogo.
+
+## Simulación asincrónica
+
+Los productos se encuentran en `src/mock/asyncMock.js`.
+
+La función `getProducts()` devuelve una promesa que se resuelve después de dos segundos. Esto permite simular el comportamiento de una petición a una API antes de incorporar una base de datos real.
 
 ## Tecnologías utilizadas
 
-- React 19
+- React
 - Vite
 - JavaScript
 - CSS
 - React Icons
-- Oxlint
 - Git y GitHub
-
-## Componentes principales
-
-### Navbar
-
-Contiene la identidad de Ansiedark y las categorías comerciales del catálogo:
-
-- Anillos
-- Collares
-- Pulseras
-
-### CartWidget
-
-Representa el acceso visual al futuro carrito de compras. Actualmente muestra una cantidad fija de productos, que será reemplazada por información dinámica en próximas etapas.
-
-### ItemListContainer
-
-Funciona como contenedor principal del futuro catálogo. Recibe el mensaje de bienvenida mediante la prop `greeting`.
 
 ## Instalación
 
 Clonar el repositorio:
 
 ```bash
-git clone https://github.com/Alop03/ansiedark-preentrega2.git
+git clone https://github.com/Alop03/ansiedark-preentrega3.git
 ```
 
-Ingresar en la carpeta:
+Ingresar al proyecto:
 
 ```bash
-cd ansiedark-preentrega2
+cd ansiedark-preentrega3
 ```
 
 Instalar las dependencias:
@@ -52,48 +60,12 @@ Instalar las dependencias:
 npm install
 ```
 
-Ejecutar el servidor de desarrollo:
+Iniciar el servidor de desarrollo:
 
 ```bash
 npm run dev
 ```
 
-## Comandos disponibles
+## Autor
 
-Ejecutar el entorno de desarrollo:
-
-```bash
-npm run dev
-```
-
-Analizar el código:
-
-```bash
-npm run lint
-```
-
-Generar la versión de producción:
-
-```bash
-npm run build
-```
-
-## Estructura relevante
-
-```text
-src/
-├── components/
-│   ├── CartWidget.jsx
-│   ├── ItemListContainer.css
-│   ├── ItemListContainer.jsx
-│   ├── Navbar.css
-│   └── Navbar.jsx
-├── App.css
-├── App.jsx
-├── index.css
-└── main.jsx
-```
-
-## Estado del proyecto
-
-Pre-entrega 2: layout inicial y componentes del e-commerce.
+Álvaro Sigüertt — Proyecto desarrollado para el curso de React JS de Coderhouse.
